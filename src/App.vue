@@ -3,7 +3,7 @@
     <h1 v-html="title"></h1>
     <input v-model="newItem" v-on:keyup.enter="addNew()">
     <ul>
-      <li v-for="item in items" v-bind:class="{finished:item.isFinished}" v-on:click="toggleFinish(item)">
+      <li v-for="item in items" v-bind:key="{finished:item.isFinished}" v-on:click="toggleFinish(item)">
         {{ item.label }}
       </li>
     </ul>
@@ -13,7 +13,7 @@
 
 <script>
 import Store from "./store.js";
-import ComponentA from '.components/componentA'
+import ComponentA from './components/componentA';
 
 export default {
   data: function() {
@@ -23,7 +23,7 @@ export default {
       newItem: ""
     };
   },
-  components:{
+  components: {
     ComponentA
   },
   watch: {
